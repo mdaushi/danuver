@@ -8,7 +8,7 @@ interface FrontLayoutProps {
 export default function FrontLayout({ children }: FrontLayoutProps) {
   return (
     <div className="relative flex min-h-screen flex-col">
-      <SiteHeader />
+      <SiteHeader showCtaApp={true} />
       <div className="flex-1">{children}</div>
       <SiteFooter />
     </div>

@@ -21,11 +21,11 @@ export function SiteHeader({ menus, showCtaApp = false }: SiteHeaderProps) {
               <Link
                 href="/app"
                 className={cn(
-                  buttonVariants({ variant: "secondary", size: "sm" }),
+                  buttonVariants({ variant: "outline", size: "sm" }),
                   "px-4"
                 )}
               >
-                Go to App
+                Open App
               </Link>
             ) : null}
           </nav>

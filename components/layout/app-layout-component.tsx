@@ -11,10 +11,11 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 
+import Sidebar from "../shared/sidebar"
+import { Button } from "../ui/button"
 import { ScrollArea } from "../ui/scroll-area"
 import { Separator } from "../ui/separator"
 import { TooltipProvider } from "../ui/tooltip"
-import Sidebar from "./sidebar"
 
 interface AppComponentProps {
   children: React.ReactNode
@@ -77,28 +78,11 @@ export function AppLayoutComponent({ children }: AppComponentProps) {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-          <ScrollArea className="h-screen">{children}</ScrollArea>
+          <ScrollArea className="h-screen">
+            <div className="flex-1 space-y-4 p-8 pt-6">{children}</div>
+          </ScrollArea>
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
-  )
-}
-
-interface AppComponentContentProps extends AppComponentProps {
-  title: string
-}
-
-export function AppLayoutContentComponent({
-  children,
-  title,
-}: AppComponentContentProps) {
-  return (
-    <>
-      <div className="flex h-[52px] items-center px-4 py-2">
-        <h1 className="text-xl font-bold">{title}</h1>
-      </div>
-      <Separator />
-      {children}
-    </>
   )
 }
