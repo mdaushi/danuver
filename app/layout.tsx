@@ -1,10 +1,10 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import { CookiesProvider } from "next-client-cookies/server"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/layout/site-header"
 import { ThemeProvider } from "@/components/shared/theme-provider"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <CookiesProvider>{children}</CookiesProvider>
             <TailwindIndicator />
           </ThemeProvider>
         </body>

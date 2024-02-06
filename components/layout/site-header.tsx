@@ -1,26 +1,33 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { MainNav } from "@/components/layout/main-nav"
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  menus?: NavItem[]
+  showCtaApp?: boolean
+}
+
+export function SiteHeader({ menus, showCtaApp = false }: SiteHeaderProps) {
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav items={siteConfig.mainNav} />
+        <MainNav items={menus} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <Link
-              href="/app"
-              className={cn(
-                buttonVariants({ variant: "secondary", size: "sm" }),
-                "px-4"
-              )}
-            >
-              Go to App
-            </Link>
+            {showCtaApp ? (
+              <Link
+                href="/app"
+                className={cn(
+                  buttonVariants({ variant: "secondary", size: "sm" }),
+                  "px-4"
+                )}
+              >
+                Go to App
+              </Link>
+            ) : null}
           </nav>
         </div>
       </div>
