@@ -1,6 +1,4 @@
-import { LayoutDashboard } from "lucide-react"
-
-import { SidebarItemVariant } from "@/types/sidebar"
+import { CreditCard, LayoutDashboard } from "lucide-react"
 
 export const sidebarItemConfig = {
   items: [
@@ -8,8 +6,13 @@ export const sidebarItemConfig = {
       title: "Dashboard",
       label: "",
       icon: LayoutDashboard,
-      variant: SidebarItemVariant.DEFAULT,
-      link: "/dashboard/",
+      link: "/app",
+    },
+    {
+      title: "Accounts",
+      label: "",
+      icon: CreditCard,
+      link: "/app/accounts",
     },
   ],
 }
