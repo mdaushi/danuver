@@ -40,12 +40,12 @@ export default function Sidebar({ items, isCollapsed }: SidebarProps) {
                     href={item.link} // Updated to use the link property
                     className={cn(
                       buttonVariants({ variant: isMenuActive, size: "icon" }),
-                      "h-9 w-9",
+                      "size-9",
                       isMenuActive === "default" &&
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                     )}
                   >
-                    <item.icon className="h-4 w-4" />
+                    <item.icon className="size-4" />
                     <span className="sr-only">{item.title}</span>
                   </Link>
                 </TooltipTrigger>
@@ -75,7 +75,7 @@ export default function Sidebar({ items, isCollapsed }: SidebarProps) {
                 "justify-start"
               )}
             >
-              <item.icon className="mr-2 h-4 w-4" />
+              <item.icon className="mr-2 size-4" />
               {item.title}
               {item.label && (
                 <span
